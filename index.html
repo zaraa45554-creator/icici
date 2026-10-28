@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICICI Bank Exam Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">ICICI <span>EXAM PRACTICE</span></div>
+        <p>Banking Career Preparation Portal</p>
+    </header>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+        Independent practice website. Not an official ICICI Bank website.
+    </div>
+
+    <main class="container">
+
+        <!-- LOGIN PAGE -->
+        <section id="loginPage" class="page login-page">
+            <h1>Welcome to Exam Practice</h1>
+            <p>Login to start your preparation</p>
+
+            <form id="loginForm">
+                <label for="candidateName">Candidate Name</label>
+                <input
+                    type="text"
+                    id="candidateName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="candidateEmail">Email Address</label>
+                <input
+                    type="email"
+                    id="candidateEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p class="note">
+                Practice portal login only. No official bank credentials required.
+            </p>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section id="dashboardPage" class="page" hidden>
+            <h1>Exam Dashboard</h1>
+
+            <p>Welcome, <span id="displayName">Candidate</span>!</p>
+
+            <div class="dashboard-cards">
+
+                <article class="dashboard-card">
+                    <h2>Study Mode</h2>
+                    <p>Study questions and answers at your own pace.</p>
+                    <button type="button" id="studyButton">
+                        Start Studying
+                    </button>
+                </article>
+
+                <article class="dashboard-card">
+                    <h2>Practice Mode</h2>
+                    <p>Answer questions and check your answers.</p>
+                    <button type="button" id="practiceButton">
+                        Start Practice
+                    </button>
+                </article>
+
+                <article class="dashboard-card">
+                    <h2>Mock Exam</h2>
+                    <p>Attempt a timed mock examination.</p>
+                    <button type="button" id="mockButton">
+                        Start Mock Exam
+                    </button>
+                </article>
+
+                <article class="dashboard-card">
+                    <h2>Results & Review</h2>
+                    <p>Review your previous score and answers.</p>
+                    <button type="button" id="resultsButton">
+                        View Results
+                    </button>
+                </article>
+
+            </div>
+
+            <button type="button" id="logoutButton">
+                Logout
+            </button>
+        </section>
+
+        <!-- EXAM / STUDY SECTION -->
+        <section id="examPage" class="page" hidden>
+
+            <div class="exam-header">
+                <h1 id="modeTitle">Practice Questions</h1>
+                <p id="questionProgress">Question 1 of 200</p>
+                <p id="timer">Time: 30:00</p>
+            </div>
+
+            <!-- CATEGORY FILTER -->
+            <label for="categorySelect">Select Subject</label>
+
+            <select id="categorySelect">
+                <option value="all">All Subjects</option>
+                <option value="aptitude">Quantitative Aptitude</option>
+                <option value="reasoning">Logical Reasoning</option>
+                <option value="banking">Banking Awareness</option>
+                <option value="english">English Language</option>
+                <option value="computer">Computer Knowledge</option>
+                <option value="customer">Customer Service & Sales</option>
+                <option value="hr">HR Interview</option>
+            </select>
+
+            <!-- QUESTION CARD -->
+            <div class="question-card">
+
+                <h2 id="questionNumber">Question 1</h2>
+
+                <p id="questionText">
+                    What is 20% of 500?
+                </p>
+
+                <!-- FOUR SELECTABLE OPTIONS -->
+                <div id="optionsContainer" class="options">
+
+                    <label class="option">
+                        <input type="radio" name="answer" value="A">
+                        <span>A. 50</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="answer" value="B">
+                        <span>B. 100</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="answer" value="C">
+                        <span>C. 150</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="answer" value="D">
+                        <span>D. 200</span>
+                    </label>
+
+                </div>
+
+                <!-- ANSWER REVIEW -->
+                <div id="answerFeedback" hidden>
+                    <p id="correctAnswer"></p>
+                    <p id="answerExplanation"></p>
+                </div>
+
+            </div>
+
+            <!-- QUESTION NAVIGATION -->
+            <div class="exam-controls">
+                <button type="button" id="previousButton">
+                    Previous
+                </button>
+
+                <button type="button" id="reviewButton">
+                    Check Answer
+                </button>
+
+                <button type="button" id="nextButton">
+                    Next
+                </button>
+
+                <button type="button" id="submitExamButton">
+                    Submit Exam
+                </button>
+            </div>
+
+            <!-- QUESTION NUMBER NAVIGATION -->
+            <div class="question-navigation">
+                <h3>Question Navigator</h3>
+                <div id="questionNumbers"></div>
+            </div>
+
+            <button type="button" id="backDashboardButton">
+                Back to Dashboard
+            </button>
+
+        </section>
+
+        <!-- RESULT PAGE -->
+        <section id="resultPage" class="page" hidden>
+            <h1>Exam Result</h1>
+
+            <p>Candidate: <span id="resultCandidate"></span></p>
+            <p>Total Questions: <span id="totalQuestions">0</span></p>
+            <p>Attempted: <span id="attemptedQuestions">0</span></p>
+            <p>Correct Answers: <span id="correctCount">0</span></p>
+            <p>Wrong Answers: <span id="wrongCount">0</span></p>
+            <p>Unanswered: <span id="unansweredCount">0</span></p>
+            <h2>Score: <span id="scorePercentage">0%</span></h2>
+
+            <button type="button" id="reviewAnswersButton">
+                Review Answers
+            </button>
+
+            <button type="button" id="returnHomeButton">
+                Back to Dashboard
+            </button>
+
+            <div id="reviewContainer"></div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>ICICI Bank Exam Practice Portal</p>
+        <p>Independent educational project — not affiliated with ICICI Bank.</p>
+    </footer>
+
+    <!-- JavaScript will be added in the next step -->
+    <script src="script.js"></script>
+
+</body>
+</html>
